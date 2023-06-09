@@ -7,7 +7,6 @@ import (
 	"io"
 	"net/http"
 	"os"
-	//gindump "github.com/tpkeeper/gin-dump"
 )
 
 var store = cookie.NewStore([]byte("gin_seeyon"))
