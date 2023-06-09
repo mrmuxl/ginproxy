@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    {{template "header" .}}
+    <script src="/static/js/jquery-3.1.1.min.js"></script>
+    <script src="/static/js/qrcode.min.js"></script>
+</head>
+<body>
+<div class="header" xmlns="http://www.w3.org/1999/html">
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href=""></a>
+
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link"></a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link"></a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link"></a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+    <div class="content ">
+        <h2 class="content-head is-center">APP下载安装</h2>
+
+        <div class="pure-g">
+            <div class="l-box pure-u-1-3"></div>
+            <div class="l-box-lrg pure-u-1-3 is-center" style="padding-top: 1px;">
+                安全令牌验证 账户 <span style="color: #e9322d; font-size: large"> {{.login_username}} </span> 请按照一下步骤完成绑定操作
+            </div>
+            <div class="l-box pure-u-1-3"></div>
+        </div>
+        <div class="pure-g">
+            <div class="l-box pure-u-1-3" style="padding: 1px;"></div>
+            <div class="l-box pure-u-1-3" style="padding: 1px;">
+                <hr>
+                <h4 class="is-center">请在手机端下载并安装MFA验证器App</h4>
+            </div>
+            <div class=" l-box pure-u-1-3" style="padding: 1px;"></div>
+        </div>
+        <div class="pure-g">
+            <div class="l-box pure-u-md-1-3" style="padding: 1px ">
+            </div>
+            {{/*            <div class="l-box pure-u-md-1-8" style="padding-top: 1px; padding-right: 5px;">*/}}
+            {{/*                <span style="padding-top: 1px;">华为手机扫码下载</span>*/}}
+            {{/*                <img src="data:image/png;base64,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" width="180" height="180" alt="">*/}}
+            {{/*            </div>*/}}
+            <div id="qr_android" class="l-box pure-u-md-1-5" style="padding-top: 1px;">
+                <span displa style="padding-top: 1px;"> Android手机下载</span>
+            </div>
+            <div id="qr_ios" class="l-box pure-u-md-1-5" style="padding-top: 1px;">
+                <span style="padding-top: 1px;"> 苹果手机下载</span>
+            </div>
+            <div class="l-box pure-u-md-1-1 is-center"><a href="/auth/otp/bind" class="pure-button"
+                                                          style="width: 300px">下一步</a></div>
+        </div>
+
+    </div>
+
+
+    <div class="footer l-box is-center">
+    </div>
+
+</div>
+
+<script>
+    $('.change-color li:eq(1) i').css('color', '#1ab394');
+    $('.change-color li:eq(2) i').css('color', '#1ab394');
+
+    $(document).ready(function () {
+        // 生成用户绑定otp的二维码
+        var qrcode = new QRCode(document.getElementById('qr_android'), {
+            text: {{.qr_android}},
+            width: 180,
+            height: 180,
+            colorDark: '#000000',
+            colorLight: '#ffffff',
+            correctlevel: QRCode.CorrectLevel.H
+        });
+
+        var qrcode = new QRCode(document.getElementById('qr_ios'), {
+            text: {{.qr_ios}},
+            width: 180,
+            height: 180,
+            colorDark: '#000000',
+            colorLight: '#ffffff',
+            correctlevel: QRCode.CorrectLevel.H
+        });
+        document.getElementById('qr_android').removeAttribute("title");
+        document.getElementById('qr_ios').removeAttribute("title");
+    })
+</script>
+{{ template "footer" .}}
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    {{template "header" .}}
+</head>
+<body>
+<div class="header" xmlns="http://www.w3.org/1999/html">
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href=""></a>
+
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link"></a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link"></a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link"></a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+    <div class="content ">
+        <h2 class="content-head is-center">绑定成功<span id="time" style="color: #e9322d">5</span>秒之后跳转到首页</h2>
+
+
+    </div>
+
+
+    <div class="footer l-box is-center">
+    </div>
+
+</div>
+<script>
+    var second = 5;
+    var time = document.getElementById("time");
+
+    function show() {
+        second--;
+        if (second == 0) {
+            //跳转页面
+            location.href = "/";
+        }
+        //用来动态设置里面的内容
+        time.innerHTML = second + "";
+
+    }
+
+    //用来实现这个一秒实现一次这个方法
+    setInterval(show, 1000);
+
+
+</script>
+
+{{ template "footer" .}}
+</body>
+</html>
